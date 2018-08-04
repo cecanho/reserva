@@ -1,10 +1,8 @@
 <?php
-    session_start();
-    $con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
-
-    $stmt = $con->prepare("INSERT INTO horario(horario) VALUES(?)");
-    $stmt->bindParam(1,$_POST['hora']);
-    $stmt->execute();
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
+$stmt = $con->prepare("INSERT INTO horario(horario) VALUES(?)");
+$stmt->bindParam(1,$_POST['hora']);
+$stmt->execute();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -1,12 +1,9 @@
 <?php
-session_start();
-
-$con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
-
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
 $stmt = $con->prepare("INSERT INTO controle(data_acesso, hora_acesso, id_usuario) VALUES(?, ?, ?)");
-$stmt->bindParam(1,$_SESSION['dtalteracao']);
-$stmt->bindParam(2,$_SESSION['hora']);
-$stmt->bindParam(3,$_SESSION['id']);
+$stmt->bindParam(1,$_COOKIE['dtalteracao']);
+$stmt->bindParam(2,$_COOKIE['hora']);
+$stmt->bindParam(3,$_COOKIE['id']);
 $stmt->execute();
 ?>
 
@@ -67,7 +64,7 @@ $stmt->execute();
 
 <div class="w3-center">
     <?php
-        echo "<p> Bem vindo <strong>" . $_SESSION['nome'] . "</strong>, hoje é " . date('d/m/Y') . " </p>";
+        echo "<p> Bem vindo <strong>" . $_COOKIE['nome'] . "</strong>, hoje é " . date('d/m/Y') . " </p>";
     ?>
     <h3>Olá, bem vindo, acesse os menus para suas tarefas.</h3>
     <img src="img/plano.jpg" width="50%">

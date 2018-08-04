@@ -1,9 +1,9 @@
 <?php
-session_start();$con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
 $rs = $con->query('SELECT * FROM item WHERE id NOT IN (SELECT id_item FROM reserva WHERE datahj = "'.$_POST['datares'].'"ORDER BY id DESC)');
 
-    $_SESSION['horario'] = $_POST['horario'];
-    $_SESSION['datahj'] = $_POST['datares'];
+    $_COOKIE['horario'] = $_POST['horario'];
+    $_COOKIE['datahj'] = $_POST['datares'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

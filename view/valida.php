@@ -1,6 +1,5 @@
 <?php
-session_start();
-$con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
 
     $login = addslashes($_POST['login']);
     $senha = addslashes($_POST['senha']);
@@ -36,14 +35,14 @@ $con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
                     $sec = "3";
                     header("Refresh: $sec; url=$page");
                 }else {
-
-                    $_SESSION['id'] = $id;
-                    $_SESSION['login'] = $login;
-                    $_SESSION['idcurso'] = $idCurso;
-                    $_SESSION['nome'] = $nome;
-                    $_SESSION['validar'] = $validar;
-                    $_SESSION['dtalteracao'] = date('d/m/Y');
-                    $_SESSION['hora'] = date('h:i:s');
+                    date_default_timezone_set('America/Sao_Paulo');
+                    setcookie('id',$id,time() + (86400 * 30), "/");
+                    setcookie('login',$login,time() + (86400 * 30), "/");
+                    setcookie('idcurso', $idCurso,time() + (86400 * 30), "/");
+                    setcookie('nome', $nome,time() + (86400 * 30), "/");
+                    setcookie('validar', $validar,time() + (86400 * 30), "/");
+                    setcookie('dtalteracao', date('d/m/Y'),time() + (86400 * 30), "/");
+                    setcookie('hora', date('h:i:s'),time() + (86400 * 30), "/");
 
                     if(strcmp($login,"admin")==0){
                         header("Location: ../view/admin.php");

@@ -1,11 +1,9 @@
 <?php
-    session_start();
-    $con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
-
-    $stmt = $con->prepare("INSERT INTO curso(nome, area) VALUES(?, ?)");
-    $stmt->bindParam(1,$_POST['nome']);
-    $stmt->bindParam(2,$_POST['area']);
-    $stmt->execute();
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
+$stmt = $con->prepare("INSERT INTO curso(nome, area) VALUES(?, ?)");
+$stmt->bindParam(1,$_POST['nome']);
+$stmt->bindParam(2,$_POST['area']);
+$stmt->execute();
 ?>
 
 <!DOCTYPE html>

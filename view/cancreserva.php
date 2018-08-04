@@ -1,7 +1,6 @@
 <?php
-session_start();
-$con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
-$rs = $con->query('SELECT * FROM reserva WHERE id_usuario = '.$_SESSION['id'].' ORDER BY id desc LIMIT 5;');
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
+$rs = $con->query('SELECT * FROM reserva WHERE id_usuario = '.$_COOKIE['id'].' ORDER BY id desc LIMIT 5;');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

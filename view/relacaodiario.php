@@ -1,7 +1,6 @@
 <?php
-    session_start();
-    $con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
-    $rs = $con->query('SELECT * FROM reserva ORDER BY id DESC');
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
+$rs = $con->query('SELECT * FROM reserva ORDER BY id DESC');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -77,8 +76,8 @@
 </div>
 
 <div class="w3-center">
-    <form name="frmatua" method="post" action="removeres.php">
-        <h3>Cancelar Reserva</h3>
+
+        <h3>Reserva de equipamento</h3>
         <div id="meudiv">
             <table class="w3-table-all">
                 <tr>
@@ -104,7 +103,7 @@
                 }
                 ?>
             </table>
-    </form>
+
 </div>
 <br />
 

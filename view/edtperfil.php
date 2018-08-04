@@ -1,6 +1,5 @@
 <?php
-session_start();
-$con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
 $rs = $con->query('SELECT * FROM curso');
 ?>
 <!DOCTYPE html>
@@ -62,9 +61,9 @@ $rs = $con->query('SELECT * FROM curso');
     <h3>Editar Perfil</h3>
     <form method="post" action="atualizaperfil.php">
         <div><label>Login:</label></div>
-        <div><input type="text" name="login" id="login" value="<?php echo $_SESSION['login'];?>"></div><br>
+        <div><input type="text" name="login" id="login" value="<?php echo $_COOKIE['login'];?>"></div><br>
         <div><label>Nome:</label></div>
-        <div><input type="text" name="nome" id="nome" value="<?php echo $_SESSION['nome'];?>"></div><br>
+        <div><input type="text" name="nome" id="nome" value="<?php echo $_COOKIE['nome'];?>"></div><br>
         <div><label>Curso:</label></div>
         <div>
             <select name="idCurso" id="idCurso">
@@ -77,7 +76,7 @@ $rs = $con->query('SELECT * FROM curso');
         </div>
         <div><input type="hidden" name="validar" id="validar" value="1"></div><br>
         <div><label>Senha:</label></div>
-        <div><input type="password" name="senha" id="senha" value="<?php echo $_SESSION['senha'];?>"></div><br>
+        <div><input type="password" name="senha" id="senha" value="<?php echo $_COOKIE['senha'];?>"></div><br>
         <input type="submit" value="Atualizar Perfil" id="atualizrar" name="atualizar">
     </form>
 

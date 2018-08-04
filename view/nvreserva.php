@@ -1,11 +1,12 @@
 <?php
-session_start();$con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
 $rs = $con->query('SELECT horario FROM horario');
 
 function SomarData($data, $dias, $meses, $ano)
 {
     /*www.brunogross.com*/
     //passe a data no formato dd/mm/yyyy
+    date_default_timezone_set('America/Sao_Paulo');
 $data = explode("/", $data);
    $newData = date("d/m/Y", mktime(0, 0, 0, $data[1] + $meses,
        $data[0] + $dias, $data[2] + $ano) );

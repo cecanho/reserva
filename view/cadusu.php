@@ -1,16 +1,13 @@
 <?php
-    session_start();
-
-    $con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
-
-    $stmt = $con->prepare("INSERT INTO usuario(login, nome, senha, dt_alteracao, validar, id_curso) VALUES(?, ?, ?, ?, ?, ?)");
-    $stmt->bindParam(1,$_POST['login']);
-    $stmt->bindParam(2,$_POST['nome']);
-    $stmt->bindParam(3,$_POST['senha']);
-    $stmt->bindParam(4,date('d/m/Y'));
-    $stmt->bindParam(5,$_POST['validar']);
-    $stmt->bindParam(6,$_POST['idCurso']);
-    $stmt->execute();
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
+$stmt = $con->prepare("INSERT INTO usuario(login, nome, senha, dt_alteracao, validar, id_curso) VALUES(?, ?, ?, ?, ?, ?)");
+$stmt->bindParam(1,$_POST['login']);
+$stmt->bindParam(2,$_POST['nome']);
+$stmt->bindParam(3,$_POST['senha']);
+$stmt->bindParam(4,date('d/m/Y'));
+$stmt->bindParam(5,$_POST['validar']);
+$stmt->bindParam(6,$_POST['idCurso']);
+$stmt->execute();
 ?>
 
 <!DOCTYPE html>

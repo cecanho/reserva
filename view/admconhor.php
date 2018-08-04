@@ -1,7 +1,6 @@
 <?php
-    session_start();
-    $con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
-    $rs = $con->query('SELECT * FROM horario');
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
+$rs = $con->query('SELECT * FROM horario');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -1,7 +1,5 @@
 <?php
-session_start();
-$con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
-
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
 $stmt = $con->prepare("UPDATE usuario SET login = ?, nome = ?, id_curso = ?, senha = ?, validar = ?, dt_alteracao = ? WHERE id = ?");
 $stmt->bindParam(1,$_POST['login']);
 $stmt->bindParam(2,$_POST['nome']);

@@ -1,5 +1,5 @@
 <?php
-    session_start();
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -85,7 +85,7 @@
         <div>
             <select name="idCurso" id="idCurso">
                 <?php
-                $con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
+
                 $rs = $con->query('SELECT * FROM curso');
                 while($row = $rs->fetch(PDO::FETCH_OBJ)){
                     echo '<option value="' . $row->id . '">' . $row->nome . '</option>';

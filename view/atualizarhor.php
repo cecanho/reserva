@@ -1,6 +1,5 @@
 <?php
-session_start();
-$con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
 $stmt = $con->prepare("UPDATE horario SET horario = ? WHERE id = ?");
 $stmt->bindParam(1,$_POST['horario']);
 $stmt->bindParam(2,$_POST['id']);

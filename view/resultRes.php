@@ -1,6 +1,5 @@
 <?php
-session_start();
-$con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
 $stmt = $con->prepare("INSERT INTO reserva(id_usuario, curso, datahj, horario, id_item, localizacao, obs) VALUES(?, ?, ?, ?, ?, ?, ?)");
 $stmt->bindParam(1,$_SESSION['id']);
 $stmt->bindParam(2,$_SESSION['idcurso']);

@@ -1,13 +1,10 @@
 <?php
-    session_start();
-
-    $con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
-
-    $stmt = $con->prepare("INSERT INTO controle(data_acesso, hora_acesso, id_usuario) VALUES(?, ?, ?)");
-    $stmt->bindParam(1,$_SESSION['dtalteracao']);
-    $stmt->bindParam(2,$_SESSION['hora']);
-    $stmt->bindParam(3,$_SESSION['id']);
-    $stmt->execute();
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
+$stmt = $con->prepare("INSERT INTO controle(data_acesso, hora_acesso, id_usuario) VALUES(?, ?, ?)");
+$stmt->bindParam(1,$_SESSION['dtalteracao']);
+$stmt->bindParam(2,$_SESSION['hora']);
+$stmt->bindParam(3,$_SESSION['id']);
+$stmt->execute();
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

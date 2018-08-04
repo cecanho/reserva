@@ -1,7 +1,6 @@
 <?php
-session_start();
-$con = new PDO("mysql:host=localhost;dbname=reservas_asser", "root", "123456");
-$rs = $con->query('SELECT * FROM reserva WHERE id_usuario = '.$_SESSION['id'].' ORDER BY id desc LIMIT 5;');
+$con = new PDO("mysql:host=localhost;dbname=reserva", "", "");
+$rs = $con->query('SELECT * FROM reserva WHERE id_usuario = '.$_COOKIE['id'].' ORDER BY id desc LIMIT 5;');
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -59,7 +58,7 @@ $rs = $con->query('SELECT * FROM reserva WHERE id_usuario = '.$_SESSION['id'].' 
 </div>
 
 <div class="w3-center">
-    <form name="frmatua" method="post" action="removeres.php">
+
         <h3>Reservas Realizadas</h3>
         <div id="meudiv">
             <table class="w3-table-all">
@@ -80,7 +79,7 @@ $rs = $con->query('SELECT * FROM reserva WHERE id_usuario = '.$_SESSION['id'].' 
                 }
                 ?>
             </table></div>
-    </form>
+
 </div>
 
 </body>
